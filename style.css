@@ -196,6 +196,7 @@ header {
 
 .mun-mineral {
     width: 150px;
+    max-height: 250px;
 }
 
 @media (max-width: 800px) {
@@ -226,10 +227,17 @@ header {
         margin: 150px auto;
         max-width: 100%;
     }
-}
 
-@media (max-width: 600px) {
     .mun-mineral:nth-child(3) {
+        display: none;
+    }
+
+    .second-section-intro .card-mun-container {
+        margin-top: 90px;
+        width: 200px;
+    }
+
+    .card-oval {
         display: none;
     }
 }
