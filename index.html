@@ -24,6 +24,7 @@
         <form onsubmit="buyMun(event)">
             <input type="text" class="custom-input" placeholder="Amount of BNB to invest" /> BNB
             <p>Per 1 BNB you get 12.5 MUN tokens</p>
+            <p>Tokens purchased so far: <span id="tokens-purchased">0</span> / 50,000 MUN</p>
             <button type="submit" class="buy-mun">Buy MUN</button>
         </form>
         <div class="spacer"></div>
@@ -136,6 +137,12 @@
                 crowdsaleAbi,
                 crowdsaleAddress,
             )
+            getTokensPurchased()
+        }
+
+        const getTokensPurchased = async () => {
+            const tokensPurchased = await mun.methods.tokensPurchased().call()
+            document.querySelector('#tokens-purchased').innerHTML = window.web3.utils.fromWei(tokensPurchased)
         }
 
         const buyMun = async e => {
